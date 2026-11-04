@@ -2694,19 +2694,19 @@
     ]
   },
   "packageFolders": {
-    "/home/runner/.nuget/packages/": {}
+    "/Users/maxservkiosk/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/runner/work/Client-Portal/Client-Portal/src/ClientPortal/ClientPortal.csproj",
+      "projectUniqueName": "/Users/maxservkiosk/Desktop/Github/Client-Portal/src/ClientPortal/ClientPortal.csproj",
       "projectName": "ClientPortal",
-      "projectPath": "/home/runner/work/Client-Portal/Client-Portal/src/ClientPortal/ClientPortal.csproj",
-      "packagesPath": "/home/runner/.nuget/packages/",
-      "outputPath": "/home/runner/work/Client-Portal/Client-Portal/src/ClientPortal/obj/",
+      "projectPath": "/Users/maxservkiosk/Desktop/Github/Client-Portal/src/ClientPortal/ClientPortal.csproj",
+      "packagesPath": "/Users/maxservkiosk/.nuget/packages/",
+      "outputPath": "/Users/maxservkiosk/Desktop/Github/Client-Portal/src/ClientPortal/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/runner/.nuget/NuGet/NuGet.Config"
+        "/Users/maxservkiosk/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -2783,7 +2783,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.403/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.403/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
