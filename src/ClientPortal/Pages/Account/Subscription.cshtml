@@ -1,0 +1,22 @@
+@page
+@using ClientPortal.Data
+@model ClientPortal.Pages.Account.SubscriptionModel
+@{ ViewData["Title"] = "Mijn abonnement"; }
+<h1>Mijn abonnement</h1>
+@if (Model.StatusMessage is not null) { <div class="alert alert-success">@Model.StatusMessage</div> }
+<p>Huidig abonnement: <strong>@Model.CurrentPlan</strong>@if (Model.SubscribedOn is not null) { <text> (sinds @Model.SubscribedOn.Value.ToString("d MMM yyyy"))</text> }</p>
+<form method="post">
+    <div class="row">
+    @foreach (var plan in new[] { SubscriptionPlan.Basic, SubscriptionPlan.Standard, SubscriptionPlan.Premium })
+    {
+        <div class="col-md-4"><div class="card mb-3"><div class="card-body">
+            <h5 class="card-title">@plan</h5>
+            <button class="btn btn-primary" type="submit" asp-page-handler="Choose" asp-route-plan="@plan" disabled="@(Model.CurrentPlan == plan)">Kies @plan</button>
+        </div></div></div>
+    }
+    </div>
+    @if (Model.CurrentPlan != SubscriptionPlan.None)
+    {
+        <button class="btn btn-outline-danger" type="submit" asp-page-handler="Cancel">Abonnement opzeggen</button>
+    }
+</form>
