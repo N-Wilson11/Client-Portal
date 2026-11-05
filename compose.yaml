@@ -1,0 +1,15 @@
+services:
+  client-portal:
+    build:
+      context: ./src/ClientPortal
+    ports:
+      - "8080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__DefaultConnection: "Data Source=/app/data/app.db;Cache=Shared"
+    volumes:
+      - client-portal-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  client-portal-data:
