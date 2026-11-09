@@ -4,10 +4,39 @@ using ClientPortal.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var port = Environment.GetEnvironmentVariable("PORT");
+if (int.TryParse(port, out var listeningPort) && listeningPort is > 0 and <= 65535)
+{
+    builder.WebHost.UseUrls($"http://0.0.0.0:{listeningPort}");
+}
+else if (!string.IsNullOrEmpty(port))
+{
+    throw new InvalidOperationException("PORT must be a valid TCP port.");
+}
+
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+var databaseProvider = builder.Configuration["Database:Provider"] ?? "Sqlite";
+var connectionName = databaseProvider switch
+{
+    "Sqlite" => "DefaultConnection",
+    "PostgreSql" => "PostgreSql",
+    "Supabase" => "Supabase",
+    _ => throw new InvalidOperationException($"Unsupported database provider '{databaseProvider}'.")
+};
+var connectionString = builder.Configuration.GetConnectionString(connectionName)
+    ?? throw new InvalidOperationException($"Connection string '{connectionName}' not found.");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+{
+    if (databaseProvider is "PostgreSql" or "Supabase")
+    {
+        options.UseNpgsql(connectionString);
+    }
+    else
+    {
+        options.UseSqlite(connectionString);
+    }
+});
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)

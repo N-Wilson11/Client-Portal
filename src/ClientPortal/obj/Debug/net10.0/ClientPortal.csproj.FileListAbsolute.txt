@@ -557,3 +557,5 @@
 /Users/maxservkiosk/Desktop/Github/Client-Portal/src/ClientPortal/obj/Debug/net10.0/ClientPortal.pdb
 /Users/maxservkiosk/Desktop/Github/Client-Portal/src/ClientPortal/obj/Debug/net10.0/ClientPortal.genruntimeconfig.cache
 /Users/maxservkiosk/Desktop/Github/Client-Portal/src/ClientPortal/obj/Debug/net10.0/ref/ClientPortal.dll
+/Users/maxservkiosk/Desktop/Github/Client-Portal/src/ClientPortal/bin/Debug/net10.0/Npgsql.dll
+/Users/maxservkiosk/Desktop/Github/Client-Portal/src/ClientPortal/bin/Debug/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll

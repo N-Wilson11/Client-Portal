@@ -6,6 +6,7 @@ services:
       - "8080:8080"
     environment:
       ASPNETCORE_ENVIRONMENT: Production
+      Database__Provider: Sqlite
       ConnectionStrings__DefaultConnection: "Data Source=/app/data/app.db;Cache=Shared"
     volumes:
       - client-portal-data:/app/data
